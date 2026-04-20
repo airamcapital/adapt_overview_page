@@ -1,0 +1,40 @@
+╔══════════════════════════════════════════════════════════════╗
+║     ADAPT OVERVIEW PAGE — METRIC UPDATE CHEAT SHEET         ║
+╚══════════════════════════════════════════════════════════════╝
+
+After running an inception-to-today backtest, open Terminal
+and run these commands. Replace the NEW values with your
+actual numbers from the Streamlit dashboard.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+cd ~/Desktop/adapt_overview_page
+sed -i '' 's/OLD_CAGR%/NEW_CAGR%/g' index.html
+sed -i '' 's/OLD_SHARPE/NEW_SHARPE/g' index.html
+sed -i '' 's/OLD_CALMAR/NEW_CALMAR/g' index.html
+sed -i '' 's/OLD_MAXDD%/NEW_MAXDD%/g' index.html
+sed -i '' 's/OLD DATE/NEW DATE/g' index.html
+git add . && git commit -m "update metrics" && git push
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+EXAMPLE (updating from April 20 values to new values):
+
+cd ~/Desktop/adapt_overview_page
+sed -i '' 's/21.05%/23.50%/g' index.html
+sed -i '' 's/1.33/1.45/g' index.html
+sed -i '' 's/1.36/1.52/g' index.html
+sed -i '' 's/-15.48%/-14.20%/g' index.html
+sed -i '' 's/April 20, 2026/May 15, 2026/g' index.html
+git add . && git commit -m "update metrics" && git push
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CURRENT VALUES (last updated April 20, 2026):
+  CAGR:      21.05%
+  Max DD:    -15.48%
+  Sharpe:    1.33
+  Calmar:    1.36
+  Date:      April 20, 2026
+
+Wait 2-3 min after pushing, then Cmd+Shift+R to refresh site.
